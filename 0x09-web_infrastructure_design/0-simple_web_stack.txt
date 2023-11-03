@@ -1,0 +1,25 @@
+ALX Project
+Design of Web Infrastructure
+Task 0: Definitions and Clarifications
+
+What constitutes a server? A server represents a tool, a virtual apparatus, or software designed to offer functionality to other software or devices, commonly referred to as "clients."
+
+What purpose does a domain name serve? A domain name functions to distinguish Internet assets, including computers, networks, and services, utilizing an easily memorizable textual label instead of numerical designations (IP addresses).
+
+What category of DNS record is identified by "www" in www.foobar.com? It is classified as a 'CNAME' record.
+
+What function does the Web Server fulfill? The Web Server's task involves the storage, processing, and presentation of website content (codebase). Its role is to dispense web pages to users, primarily employing HTML and CSS, using the HTTP protocol.
+
+What responsibilities does the application server hold? The application server is tasked with generating dynamic content by executing server-side code, for instance, JSP, Ajax, PHP, etc.
+
+What is the role of the database? The database's responsibility is the systematic and efficient management of data in a well-organized structure, allowing for easy addition, access, updates, management, and deletion of data.
+
+How does the server communicate with the user's computer requesting the website? The server employs the HTTP protocol for communication.
+
+Issues
+
+A. Single Point Of Failure (SPOF): There exists an array of single failure points, beginning with the reliance on a singular server housing only one web server, application server, and database. A single failure point represents a component within a system, the failure of which would result in the entire system ceasing to function.
+
+B. Downtime during maintenance requirements (e.g., deploying new code - requiring a restart of the web server): The downtime duration might extend beyond the anticipated period due to the server's dependence on a single codebase that might be momentarily unavailable. Consequently, users will be unable to access the website and its content, resulting in a subpar user experience and loss of traffic.
+
+C. Inability to scale during high incoming traffic: As the domain name directs straight to the server and lacks a load balancer, it becomes challenging to manage increased loads efficiently. This presents a problem concerning the volume of users attempting to access the website's content, potentially leading to a poor user experience or imposing limitations on the number of users the website can support.
