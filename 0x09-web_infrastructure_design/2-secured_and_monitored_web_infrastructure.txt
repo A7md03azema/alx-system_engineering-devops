@@ -1,0 +1,23 @@
+ALX Project
+Designing Web Infrastructure
+Task 2: Definitions and Explanations
+
+What's the purpose of each additional element? We've incorporated three new components: a dedicated firewall for each server to fortify against potential attacks, an SSL certificate securing server www.foobar.com via HTTPS, and three monitoring clients that collect and transmit logs to our data collector, Sumologic.
+
+What role do firewalls play? Firewalls serve as network security systems that monitor and regulate incoming and outgoing network traffic based on predetermined security protocols. Essentially, they establish a protective barrier between a trusted network and an untrusted one.
+
+Why is traffic served over HTTPS? The shift to HTTPS is crucial due to the prior use of Hypertext Transfer Protocol (HTTP), which transmits data in plain text. HTTPS, employing Transport Layer Security (TLS), encrypts data, ensuring security during transmission.
+
+What's the purpose of monitoring? Monitoring serves to proactively identify and diagnose potential web application performance issues.
+
+How does the monitoring tool collect data? The monitoring tool retrieves logs from the application server, MySQL Database, and Nginx web server. In computing, a log refers to the automatically generated and time-stamped documentation of system-relevant events.
+
+How would you monitor your web server's QPS? For a web server handling 1K queries per second (QPS), monitoring would occur from both network and application levels.
+
+Issues
+
+A. Why is SSL termination at the load balancer level problematic? SSL termination demands significant resources and CPU usage. Placing the decryption responsibility on the load balancer allows the server to focus its processing power on application-related tasks. However, the precise issues aren’t apparent (to be updated).
+
+B. Why is relying on a single MySQL server for write operations problematic? If this server fails, it halts the addition or updating of data, leading to non-functionality in certain application features.
+
+C. Why might servers equipped with identical components pose a problem? Any bug present in one server's component will likely be replicated in the other servers, causing potential system-wide issues.

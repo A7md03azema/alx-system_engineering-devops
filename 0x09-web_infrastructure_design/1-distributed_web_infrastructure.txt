@@ -1,0 +1,21 @@
+ALX Project
+Web Infrastructure Development
+Task 1: Definitions and Clarifications
+
+Why add each additional element? The inclusion of a new server allows for the incorporation of a load balancer to manage high incoming traffic. It also mitigates the risk associated with a single point of failure that may arise from a solitary server setup.
+
+What distribution algorithm does your load balancer employ, and how does it function? Our load balancer utilizes the Round Robin algorithm, sequentially connecting unless a server experiences downtime. Requests are catered to by the servers in a sequential manner. Upon reaching the last server, the cycle restarts from the initial server. This algorithm is suitable when servers have identical specifications and persistent connections are limited.
+
+Does your load balancer support an Active-Active or Active-Passive setup, and elucidate the contrast? The load balancer facilitates an Active-Active setup, where all nodes (servers) concurrently operate the same service type. Conversely, an Active-Passive setup involves inactive nodes. In a scenario with two nodes, if the first node is active, the second remains passive or standby. The primary distinction lies in performance. Active-active clusters leverage the resources of all servers during routine operations, while active-passive clusters activate the backup server only during failover.
+
+Elaborate on the workings of a database Primary-Replica (Master-Slave) cluster. Master-slave replication involves transmitting data from a primary database server (the master) to one or more additional database servers (the slaves). The master logs updates, which are then synchronized across the slaves. Synchronous updates occur when changes are made to both the master and slave simultaneously, while asynchronous updates are queued and written later. This method is commonly utilized to distribute read access among multiple servers for scalability and other purposes such as failover or data analysis on the slave server to prevent overloading the master.
+
+What distinguishes the Primary node from the Replica node concerning applications? A replica node replicates the primary node, serving as redundant copies of the application codebase to safeguard against hardware failure and enhance read request capabilities, such as document retrieval or searches.
+
+Issues
+
+A. Single Point of Failure (SPOF): The primary single point of failure in this setup revolves around having only one load balancer.
+
+B. Security Concerns (absence of firewall, lack of HTTPS): Noteworthy security concerns involve communication through an insecure HTTP protocol, potentially allowing a middleman attacker to intercept sensitive information transmitted as plain text, such as passwords. Moreover, the absence of a firewall could lead to denial-of-service attacks (DOS or DDOS), causing system downtime, or exploitation of open ports for data breaches.
+
+C. Lack of Monitoring: A renowned adage in the tech industry states, "You cannot fix or improve what you cannot measure." Absence of server, website, or application monitoring inhibits timely identification and resolution of problems, downtime, or security threats. Implementing monitoring measures can enhance productivity, reduce IT support costs, and significantly improve overall user experience.
